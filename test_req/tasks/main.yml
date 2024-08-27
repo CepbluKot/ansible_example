@@ -17,12 +17,16 @@
 
   - name: la poste
     uri: 
-      url: "http://localhost:8000/"
+      url: "https://api.restful-api.dev/objects"
       method: POST
       return_content: yes
-      body: >-
-        {{ {"data": example_var1,
-            } }}
+      body:
+        name: Apple MacBook Pro 16
+        data:
+          year: 2019
+          price: 123123
+          CPU model: Intel Core i9
+          Hard disk size: 1 TB
       status_code: 200
       body_format: json
       validate_certs: no
