@@ -1,0 +1,34 @@
+---
+# tasks file for test
+  # - name: make req
+  #   ansible.builtin.uri:
+  #     url: https://api.restful-api.dev/objects/1
+  #     # method: GET
+  #     register: _command
+
+  - name: Get response with 'uri' module
+    uri:
+      url: "https://api.restful-api.dev/objects/1"
+      method: GET
+      body_format: raw     # default
+      return_content: true # default 'false'
+      status_code: 200
+    # register: _command
+
+  - name: la poste
+    uri: 
+      url: "http://localhost:8000/"
+      method: POST
+      return_content: yes
+      body: >-
+        {{ {"data": example_var1,
+            } }}
+      status_code: 200
+      body_format: json
+      validate_certs: no
+
+    register: _command
+
+  - name: debug
+    ansible.builtin.debug:
+      var: _command
