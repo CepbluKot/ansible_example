@@ -1,0 +1,8 @@
+---
+
+- name: do job global
+  hosts: all
+  gather_facts: false
+  connection: local
+  roles:
+    - test

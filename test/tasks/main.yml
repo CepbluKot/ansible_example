@@ -1,0 +1,11 @@
+---
+# tasks file for test
+  - name: launch script
+    script: ./example.py {{ example_var1 }} {{ example_var2 }}
+    args:
+      executable: python3
+    register: _command
+
+  - name: debug
+    ansible.builtin.debug:
+      var: _command
