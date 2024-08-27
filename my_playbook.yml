@@ -1,0 +1,18 @@
+- name: Play 1
+  hosts: all
+  tasks:
+    - name: Copyin
+      copy:
+        src: /home/oleg/Documents/test/example.py
+        dest: /home/vagrant/example.py
+
+    - name: launch script
+      script: /home/oleg/Documents/test/example.py
+      args:
+        executable: python3
+      register: _command
+
+    - name: debug
+      ansible.builtin.debug:
+        var: _command
+  
