@@ -6,6 +6,20 @@
   #     # method: GET
   #     register: _command
 
+  - name: la poste
+    uri: 
+      url: "http://localhost:8000/launch_task"
+      method: POST
+      return_content: yes
+      body:
+        task_data: "sample data"
+      status_code: 200
+      body_format: json
+      validate_certs: no
+
+    register: _command
+
+
   - name: Get response with 'uri' module
     uri:
       url: "https://api.restful-api.dev/objects/1"
@@ -15,23 +29,6 @@
       status_code: 200
     # register: _command
 
-  - name: la poste
-    uri: 
-      url: "https://api.restful-api.dev/objects"
-      method: POST
-      return_content: yes
-      body:
-        name: Apple MacBook Pro 16
-        data:
-          year: 2019
-          price: 123123
-          CPU model: Intel Core i9
-          Hard disk size: 1 TB
-      status_code: 200
-      body_format: json
-      validate_certs: no
-
-    register: _command
 
   - name: debug
     ansible.builtin.debug:
