@@ -29,7 +29,8 @@
     register: result
     until: result.json.state == "SUCCESS"
     delay: 1
-    
+    retries: 1000
+
   - name: debug
     ansible.builtin.debug:
       var: result
