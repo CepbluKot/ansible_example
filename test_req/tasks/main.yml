@@ -32,4 +32,4 @@
 
   - name: debug
     ansible.builtin.debug:
-      var: _command
+      var: _command.json.task_id
