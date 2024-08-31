@@ -27,8 +27,9 @@
       return_content: true # default 'false'
       status_code: 200
     register: result
-
-
+    until: result.json.state == "SUCCESS"
+    delay: 1
+    
   - name: debug
     ansible.builtin.debug:
       var: result
