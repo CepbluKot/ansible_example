@@ -8,7 +8,7 @@
 
   - name: la poste
     uri: 
-      url: "http://46.19.67.121:9009/launch_task"
+      url: "http://46.19.67.121:8000/launch_task"
       method: POST
       return_content: yes
       body:
@@ -21,7 +21,7 @@
 
   - name: Get response with 'uri' module
     uri:
-      url: "http://46.19.67.121:9009/get_task_data?task_id={{ _command.json.task_id }}"
+      url: "http://46.19.67.121:8000/get_task_data?task_id={{ _command.json.task_id }}"
       method: GET
       body_format: raw     # default
       return_content: true # default 'false'
