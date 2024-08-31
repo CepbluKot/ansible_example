@@ -19,17 +19,16 @@
 
     register: _command
 
-
   - name: Get response with 'uri' module
     uri:
-      url: "https://api.restful-api.dev/objects/1"
+      url: "http://46.19.67.121:9009/get_task_data?task_id={{ _command.json.task_id }}"
       method: GET
       body_format: raw     # default
       return_content: true # default 'false'
       status_code: 200
-    # register: _command
+    register: result
 
 
   - name: debug
     ansible.builtin.debug:
-      var: _command.json.task_id
+      var: result
